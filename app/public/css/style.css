@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Wellfleet&display=swap');
+body{
+    font-family: "Wellfleet", sans-serif;
+}
+.icone {
+    background-color: white;
+    height: 20px;
+    border: none;
+}
+
+.formulaire {
+    vertical-align: middle;
+}
+
+.offline {
+    color: #980000;
+    font-weight: bold;
+    padding-left: 50px;
+
+
+}
+
+.online {
+    color: #38761D;
+    font-weight: bold;
+    padding-left: 50px;
+}
+
+.atis {
+    background-color: #B6D7A8;
+    width: 25px;
+    text-align: center;
+}
+
+.info {
+    border: 1px solid black;
+    text-align: left;
+}
+table {
+    border-collapse: collapse;
+
+}
+th{
+    background-color:#4285F4;
+}
+td.info {
+    width: 200px;
+}
