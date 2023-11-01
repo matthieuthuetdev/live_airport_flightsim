@@ -2,9 +2,12 @@
 function load_json_file($loader)
 {
     if ($loader) {
-        $file = file_get_contents("https://api.ivao.aero/v2/tracker/whazzup");
-    } else {
+   
         $file = file_get_contents("../airport_status.json");
+    } else {
+        $file = file_get_contents("https://api.ivao.aero/v2/tracker/whazzup");
+       
+
     }
     $json = json_decode($file, true);
     return $json;
@@ -12,7 +15,7 @@ function load_json_file($loader)
 
 function find_airport($airport_code, $json)
 {
-    $airport_to_find = strtoupper($airport_code)."_TWR";
+    $airport_to_find = strtoupper($airport_code) . "_TWR";
     $airport_index = null;
 
     foreach ($json["clients"]["atcs"] as $index => $current_airport) {
