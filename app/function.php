@@ -10,9 +10,9 @@ function load_json_file($loader)
     return $json;
 }
 
-function find_airport($airport_to_find, $json)
+function find_airport($airport_code, $json)
 {
-    $airport_to_find = $airport_to_find . "_TWR";
+    $airport_to_find = strtoupper($airport_code)."_TWR";
     $airport_index = null;
 
     foreach ($json["clients"]["atcs"] as $index => $current_airport) {
