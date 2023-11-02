@@ -2,7 +2,7 @@
 require "../function.php";
 
 $airport_to_find = "";
-$api_file = empty($_GET) ? false : (isset($_GET['load']) ? $_GET['load'] : false);
+$api_file = empty($_GET) ? true : (isset($_GET['load']) ? $_GET['load'] : true);
 
 if (isset($_POST["airport_name"])) {
     $json = load_json_file($api_file);

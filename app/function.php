@@ -2,12 +2,11 @@
 function load_json_file($loader)
 {
     if ($loader) {
-   
-        $file = file_get_contents("../airport_status.json");
-    } else {
-        $file = file_get_contents("https://api.ivao.aero/v2/tracker/whazzup");
-       
 
+        $file = file_get_contents("https://api.ivao.aero/v2/tracker/whazzup");
+    } else {
+
+        $file = file_get_contents("../airport_status.json");
     }
     $json = json_decode($file, true);
     return $json;
