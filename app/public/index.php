@@ -2,18 +2,22 @@
 require "../function.php";
 
 $airport_to_find = "";
-$api_file = isset($_GET['load']) ? $_GET['load'] : false;
+if (isset($_GET["load"])) {
+    $api_file = $_GET["load"];
+} else {
+    $api_file = true;
+}
+
 
 if (isset($_POST["airport_name"])) {
-    $json = load_json_file($api_file,300);
+    $json = load_json_file($api_file, 300);
     $airport_code = $_POST["airport_name"];
     $airport_index = find_airport($airport_code, $json);
     $airport_status = status($airport_index);
     $oneline = isonline($airport_index,);
     $info = display_info($airport_index, $oneline, $json);
-    $hour = getUpdateHour();
+    $hupdate_hour = getUpdateHour();
 }
-var_dump(strtotime("2023-01-01"))
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +46,8 @@ var_dump(strtotime("2023-01-01"))
                     <?php echo isset($airport_status) ? $airport_status : ""; ?>
                 </td>
                 <td>
-                    <?php echo $hour; ?>
+                <?php echo isset($update_hour) ? $update_hour : ""; ?>
+
                 </td>
             </tr>
         </table>
