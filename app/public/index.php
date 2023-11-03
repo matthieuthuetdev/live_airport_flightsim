@@ -5,13 +5,14 @@ $airport_to_find = "";
 $api_file = isset($_GET['load']) ? $_GET['load'] : false;
 
 if (isset($_POST["airport_name"])) {
-    $json = load_json_file($api_file);
+    $json = load_json_file($api_file,300);
     $airport_code = $_POST["airport_name"];
     $airport_index = find_airport($airport_code, $json);
     $airport_status = status($airport_index);
     $oneline = isonline($airport_index,);
     $info = display_info($airport_index, $oneline, $json);
 }
+var_dump(strtotime("2023-01-01"))
 ?>
 <!DOCTYPE html>
 <html lang="en">
