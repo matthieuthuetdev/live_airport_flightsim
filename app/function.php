@@ -23,7 +23,6 @@ function load_json_file($loader, $time)
     }
     $json = json_decode($file, true);
     return $json;
-
 }
 
 function find_airport($airport_code, $json)
@@ -69,3 +68,12 @@ function display_info($airport_index, $oneline, $json)
     }
 }
 
+function getUpdateHour()
+{
+    $file_content = file("../log.txt")[0];
+    $data = explode(" ",$file_content)[1];
+    $hour = explode(":", $data)[0];
+    $hour = $hour + 1;
+    $update_hour = $hour . ":" .$data[1];
+    return $update_hour;
+}

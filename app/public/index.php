@@ -11,6 +11,7 @@ if (isset($_POST["airport_name"])) {
     $airport_status = status($airport_index);
     $oneline = isonline($airport_index,);
     $info = display_info($airport_index, $oneline, $json);
+    $hour = getUpdateHour();
 }
 var_dump(strtotime("2023-01-01"))
 ?>
@@ -39,6 +40,9 @@ var_dump(strtotime("2023-01-01"))
                 </td>
                 <td>
                     <?php echo isset($airport_status) ? $airport_status : ""; ?>
+                </td>
+                <td>
+                    <?php echo $hour; ?>
                 </td>
             </tr>
         </table>
