@@ -25,7 +25,7 @@ if (isset($_POST["airport_name"])) {
     $airport_status = status($airport_index);
     $oneline = isonline($airport_index,);
     $info = display_info($airport_index, $oneline, $json);
-    $hupdate_hour = getUpdateHour();
+    $update_hour = getUpdateHour();
 }
 ?>
 <!DOCTYPE html>
