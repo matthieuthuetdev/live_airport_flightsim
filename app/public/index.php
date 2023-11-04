@@ -10,6 +10,15 @@ if (isset($_GET["load"])) {
 
 
 if (isset($_POST["airport_name"])) {
+    if (isset($_GET["load"])) {
+        if (strpos("true", $_GET["load"])) {
+            $api_file = false;
+        } elseif (strpos("true", $_GET["load"])) {
+            $api_file = true;
+        }
+    } else {
+        $api_file = true;
+    }
     $json = load_json_file($api_file, 300);
     $airport_code = $_POST["airport_name"];
     $airport_index = find_airport($airport_code, $json);
@@ -46,7 +55,7 @@ if (isset($_POST["airport_name"])) {
                     <?php echo isset($airport_status) ? $airport_status : ""; ?>
                 </td>
                 <td>
-                <?php echo isset($update_hour) ? $update_hour : ""; ?>
+                    <?php echo isset($update_hour) ? $update_hour : ""; ?>
 
                 </td>
             </tr>
