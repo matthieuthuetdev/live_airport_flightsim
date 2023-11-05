@@ -2,11 +2,11 @@
 
 $information = $json["clients"]["atcs"][$airport_index]["atis"]["revision"];
 
-$update_hour = substr(explode(" at ", $json["clients"]["atcs"][$airport_index]["atis"]["lines"][2])[1], 0, 2) . ":" . substr(explode(" at ", $json["clients"]["atcs"][$airport_index]["atis"]["lines"][2])[1], 2, 2);
 
 $airport_name = $json["clients"]["atcs"][$airport_index]["atis"]["lines"][1];
 $airport_code = $json["clients"]["atcs"][$airport_index]["callsign"];
-$atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"]
+$atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"];
+var_dump($json["clients"]["atcs"][$airport_index]["atis"]["lines"]);
 ?>
 <p>
 <table class="info">
@@ -20,7 +20,7 @@ $atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"]
         <td class="info"><?php echo $airport_code; ?></td>
         <td class="info"><?php echo $airport_name; ?></td>
         <td class="info"><?php echo $information; ?></td>
-        <td class="info"><?php echo $update_hour; ?></td>
+        <td class="info"><?php echo $update_hour_airport; ?></td>
     </tr>
 </table>
 </p>
