@@ -57,7 +57,7 @@ function isonline($airport_index)
     }
 }
 
-function display_info($airport_index, $oneline, $json)
+function display_info($airport_index, $oneline, $json, $update_hour_airport)
 {
     if ($oneline === true) {
         ob_start();
@@ -76,4 +76,22 @@ function getUpdateHour()
     $hour = $hour + 1;
     $update_hour = $hour . ":" . $data[1];
     return $update_hour;
+}
+function get_update_hour_airport($json, $airport_index)
+{
+    $lines_index = null;
+
+    foreach ($json["clients"]["atcs"][$airport_index]["atis"]["lines"] as $index => $lines) {
+        if (is_int(strpos($lines, "recorded at"))) {
+            $lines_index = $index;
+            break;
+        }
+    }
+
+    if (!is_null($lines_index)) {
+        $update_hour_airport = substr(explode(" at ", $json["clients"]["atcs"][$airport_index]["atis"]["lines"][$lines_index])[1], 0, 2) . ":" . substr(explode(" at ", $json["clients"]["atcs"][$airport_index]["atis"]["lines"][$lines_index])[1], 2, 2);
+        return $update_hour_airport;
+    }
+
+    return "aucune heure de mise à joure n'a été trouver";
 }

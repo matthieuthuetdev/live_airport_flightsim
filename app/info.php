@@ -6,7 +6,6 @@ $information = $json["clients"]["atcs"][$airport_index]["atis"]["revision"];
 $airport_name = $json["clients"]["atcs"][$airport_index]["atis"]["lines"][1];
 $airport_code = $json["clients"]["atcs"][$airport_index]["callsign"];
 $atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"];
-var_dump($json["clients"]["atcs"][$airport_index]["atis"]["lines"]);
 ?>
 <p>
 <table class="info">
