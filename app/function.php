@@ -3,7 +3,7 @@
 function load_json_file($loader, $time)
 {
     if ($loader) {
-        $logContent = file_get_contents("../log.txt"); 
+        $logContent = file_get_contents("../log.txt");
         $update_time_unix = strtotime($logContent);
         $current_time = time();
 
@@ -13,10 +13,10 @@ function load_json_file($loader, $time)
             }
             $file_content = file_get_contents("https://api.ivao.aero/v2/tracker/whazzup");
             file_put_contents("../directe_airport_status.json", $file_content);
-            file_put_contents("../log.txt", date('Y-m-d H:i:s')); 
-            $file = $file_content; 
+            file_put_contents("../log.txt", date('Y-m-d H:i:s'));
+            $file = $file_content;
         } else {
-            $file = file_get_contents("../airport_status.json");
+            $file = file_get_contents("../directe_airport_status.json");
         }
     } else {
         $file = file_get_contents("../airport_status.json");
@@ -71,9 +71,9 @@ function display_info($airport_index, $oneline, $json)
 function getUpdateHour()
 {
     $file_content = file("../log.txt")[0];
-    $data = explode(" ",$file_content)[1];
+    $data = explode(" ", $file_content)[1];
     $hour = explode(":", $data)[0];
     $hour = $hour + 1;
-    $update_hour = $hour . ":" .$data[1];
+    $update_hour = $hour . ":" . $data[1];
     return $update_hour;
 }

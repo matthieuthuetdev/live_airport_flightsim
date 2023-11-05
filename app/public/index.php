@@ -2,20 +2,11 @@
 require "../function.php";
 
 $airport_to_find = "";
-if (isset($_GET["load"])) {
-    $api_file = $_GET["load"];
-} else {
-    $api_file = true;
-}
 
 
 if (isset($_POST["airport_name"])) {
-    if (isset($_GET["load"])) {
-        if (strpos("true", $_GET["load"])) {
-            $api_file = false;
-        } elseif (strpos("true", $_GET["load"])) {
-            $api_file = true;
-        }
+    if (isset($_GET["debug"])) {
+        $api_file = !filter_var($_GET["debug"], 258);
     } else {
         $api_file = true;
     }
