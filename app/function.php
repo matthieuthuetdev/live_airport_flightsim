@@ -68,15 +68,18 @@ function display_info($airport_index, $oneline, $json, $update_hour_airport)
     }
 }
 
-function getUpdateHour()
+function getUpdateHour($json)
 {
-    $file_content = file("../log.txt")[0];
-    $data = explode(" ", $file_content)[1];
-    $hour = explode(":", $data)[0];
-    $hour = $hour + 1;
-    $update_hour = $hour . ":" . $data[1];
+    $updatedat = $json["updatedAt"];
+    $data = explode("T", $updatedat)[1];
+    $hour_minute = explode(":", $data);
+    $hour = $hour_minute[0];
+    $minute = $hour_minute[1];
+
+    $update_hour = $hour . ":" . $minute;
     return $update_hour;
 }
+
 function get_update_hour_airport($json, $airport_index)
 {
     $lines_index = null;
