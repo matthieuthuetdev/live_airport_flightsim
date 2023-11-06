@@ -19,7 +19,7 @@ $atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"];
         <td class="info"><?php echo $airport_code; ?></td>
         <td class="info"><?php echo $airport_name; ?></td>
         <td class="info"><?php echo $information; ?></td>
-        <td class="info"><?php echo $update_hour_airport; ?></td>
+        <td class="info"><?php echo $update_hour_airport." UTC"; ?></td>
     </tr>
 </table>
 </p>
