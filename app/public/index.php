@@ -38,7 +38,7 @@ if (isset($_POST["airport_name"])) {
                     <input type="text" id="airport_name" name="airport_name" placeholder="Rechercher un aéroport" value="<?php echo $airport_to_find; ?>">
                 </td>
                 <td>
-                    <button type="submit" class="icone"><img src="./image/send.png" class="icone" alt="Envoyer"></button>
+                    <button type="submit" class="sand"><img src="./image/send.png" class="sand" alt="Envoyer"></button>
                 </td>
                 <td>
                     <img src="./image/info.png" alt="bouton d'information" class="icone" title="Taper le code ICAO de l'aéroport">

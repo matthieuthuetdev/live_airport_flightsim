@@ -1,10 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Wellfleet&display=swap');
-body{
+
+body {
     font-family: "Wellfleet", sans-serif;
 }
+
 .icone {
     background-color: white;
     height: 20px;
+    border: none;
+}
+
+.sand {
+    background-color: white;
+    height: 25px;
     border: none;
 }
 
@@ -16,7 +24,7 @@ body{
     color: #980000;
     font-weight: bold;
     padding-left: 50px;
-    padding-right: 50px ;
+    padding-right: 50px;
 
 
 
@@ -26,7 +34,7 @@ body{
     color: #38761D;
     font-weight: bold;
     padding-left: 50px;
-    padding-right: 50px ;
+    padding-right: 50px;
 }
 
 .atis {
@@ -39,13 +47,16 @@ body{
     border: 1px solid black;
     text-align: left;
 }
+
 table {
     border-collapse: collapse;
 
 }
-th{
-    background-color:#4285F4;
+
+th {
+    background-color: #4285F4;
 }
+
 td.info {
     width: 200px;
 }
