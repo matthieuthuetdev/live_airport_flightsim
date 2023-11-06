@@ -48,7 +48,7 @@ function status($oneline)
     if ($oneline) {
         return "<span class='online'>Connecté</span>";
     } else {
-        return "<span class='offline'>Déonnecté</span>";
+        return "<span class='offline'>Déconnecté</span>";
     }
 }
 
