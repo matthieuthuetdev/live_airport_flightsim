@@ -1,26 +1,31 @@
 <?php
-
 function load_json_file($loader, $time)
 {
     if ($loader) {
-        $logContent = file_get_contents("../log.txt");
-        $update_time_unix = strtotime($logContent);
-        $current_time = time();
+        if (file_exists("../direct_airport_status.json")) {
+            $json = json_decode(file_get_contents("../direct_airport_status.json"), true);
+            $update_time_parts = explode("T", $json["updatedAt"]);
+            $update_date = $update_time_parts[0];
+            $update_time = substr($update_time_parts[1], 0, 5);
+            var_dump( explode("T",$json["updatedAt"])[0]." ".substr(explode("T", $json["updatedAt"])[1], 0,5));
+            $update_time = strtotime("$update_date $update_time");
+            $current_time = time();
 
-        if ($current_time - $update_time_unix >= $time) {
-            if (file_exists("../directe_airport_status.json")) {
-                unlink("../directe_airport_status.json");
+            if ($current_time - $update_time >= $time) {
+                unlink("../direct_airport_status.json");
+                $file_content = file_get_contents("https://api.ivao.aero/v2/tracker/whazzup");
+                file_put_contents("../direct_airport_status.json", $file_content);
             }
-            $file_content = file_get_contents("https://api.ivao.aero/v2/tracker/whazzup");
-            file_put_contents("../directe_airport_status.json", $file_content);
-            file_put_contents("../log.txt", date('Y-m-d H:i:s'));
-            $file = $file_content;
         } else {
-            $file = file_get_contents("../directe_airport_status.json");
+            $file_content = file_get_contents("https://api.ivao.aero/v2/tracker/whazzup");
+            file_put_contents("../direct_airport_status.json", $file_content);
         }
+
+        $file = file_get_contents("../direct_airport_status.json");
     } else {
         $file = file_get_contents("../airport_status.json");
     }
+
     $json = json_decode($file, true);
     return $json;
 }
