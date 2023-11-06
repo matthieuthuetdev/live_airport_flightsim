@@ -3,7 +3,6 @@ require "../function.php";
 
 $airport_to_find = "";
 
-
 if (isset($_POST["airport_name"])) {
     if (isset($_GET["debug"])) {
         $api_file = !filter_var($_GET["debug"], 258);
@@ -14,11 +13,11 @@ if (isset($_POST["airport_name"])) {
     $airport_code = $_POST["airport_name"];
     $airport_index = find_airport($airport_code, $json);
     $airport_status = status($airport_index);
-    $oneline = isonline($airport_index,);
-    $update_hour_airport = get_update_hour_airport($json,$airport_index);
-    
-    $info = display_info($airport_index, $oneline, $json,$update_hour_airport);
-    $update_hour = getUpdateHour();
+    $oneline = isonline($airport_index);
+    $update_hour_airport = get_update_hour_airport($json, $airport_index, $oneline);
+
+    $info = display_info($airport_index, $oneline, $json, $update_hour_airport);
+    $update_hour = getUpdateHour($json);
 }
 ?>
 <!DOCTYPE html>
@@ -49,7 +48,6 @@ if (isset($_POST["airport_name"])) {
                 </td>
                 <td>
                     <?php echo isset($update_hour) ? $update_hour : ""; ?>
-
                 </td>
             </tr>
         </table>
