@@ -44,9 +44,9 @@ function find_airport($airport_code, $json)
     return $airport_index;
 }
 
-function status($airport_index)
+function status($oneline)
 {
-    if ($airport_index !== null) {
+    if ($oneline) {
         return "<span class='online'>Connecté</span>";
     } else {
         return "<span class='offline'>Déonnecté</span>";
@@ -64,7 +64,7 @@ function isonline($airport_index)
 
 function display_info($airport_index, $oneline, $json, $update_hour_airport)
 {
-    if ($oneline === true) {
+    if ($oneline) {
         ob_start();
         require "../info.php";
         return ob_get_clean();
@@ -78,15 +78,16 @@ function getUpdateHour($json)
     $updatedat = $json["updatedAt"];
     $data = explode("T", $updatedat)[1];
     $hour_minute = explode(":", $data);
-    $hour = $hour_minute[0];
+    $hour = $hour_minute[0] + 1;
     $minute = $hour_minute[1];
 
     $update_hour = $hour . ":" . $minute;
     return $update_hour;
 }
 
-function get_update_hour_airport($json, $airport_index)
+function get_update_hour_airport($json, $airport_index,$oneline)
 {
+    if ($oneline){
     $lines_index = null;
 
     foreach ($json["clients"]["atcs"][$airport_index]["atis"]["lines"] as $index => $lines) {
@@ -102,4 +103,7 @@ function get_update_hour_airport($json, $airport_index)
     }
 
     return "aucune heure de mise à joure n'a été trouver";
+}else{
+    return ""; 
+}
 }
