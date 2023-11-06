@@ -7,7 +7,6 @@ function load_json_file($loader, $time)
             $update_time_parts = explode("T", $json["updatedAt"]);
             $update_date = $update_time_parts[0];
             $update_time = substr($update_time_parts[1], 0, 5);
-            var_dump( explode("T",$json["updatedAt"])[0]." ".substr(explode("T", $json["updatedAt"])[1], 0,5));
             $update_time = strtotime("$update_date $update_time");
             $current_time = time();
 
@@ -85,25 +84,25 @@ function getUpdateHour($json)
     return $update_hour;
 }
 
-function get_update_hour_airport($json, $airport_index,$oneline)
+function get_update_hour_airport($json, $airport_index, $oneline)
 {
-    if ($oneline){
-    $lines_index = null;
+    if ($oneline) {
+        $lines_index = null;
 
-    foreach ($json["clients"]["atcs"][$airport_index]["atis"]["lines"] as $index => $lines) {
-        if (is_int(strpos($lines, "recorded at"))) {
-            $lines_index = $index;
-            break;
+        foreach ($json["clients"]["atcs"][$airport_index]["atis"]["lines"] as $index => $lines) {
+            if (is_int(strpos($lines, "recorded at"))) {
+                $lines_index = $index;
+                break;
+            }
         }
-    }
 
-    if (!is_null($lines_index)) {
-        $update_hour_airport = substr(explode(" at ", $json["clients"]["atcs"][$airport_index]["atis"]["lines"][$lines_index])[1], 0, 2) . ":" . substr(explode(" at ", $json["clients"]["atcs"][$airport_index]["atis"]["lines"][$lines_index])[1], 2, 2);
-        return $update_hour_airport;
-    }
+        if (!is_null($lines_index)) {
+            $update_hour_airport = substr(explode(" at ", $json["clients"]["atcs"][$airport_index]["atis"]["lines"][$lines_index])[1], 0, 2) . ":" . substr(explode(" at ", $json["clients"]["atcs"][$airport_index]["atis"]["lines"][$lines_index])[1], 2, 2);
+            return $update_hour_airport;
+        }
 
-    return "aucune heure de mise à joure n'a été trouver";
-}else{
-    return ""; 
-}
+        return "aucune heure de mise à jour n'a été trouvée";
+    } else {
+        return "";
+    }
 }
