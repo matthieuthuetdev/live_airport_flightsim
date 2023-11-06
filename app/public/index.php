@@ -34,7 +34,7 @@ if (isset($_POST["airport_name"])) {
     <form method="post" action="">
         <table class="formulaire">
             <tr>
-                <td><label for="airport_name">Code de l'aéroport :</label>
+                <td>
                     <input type="text" id="airport_name" name="airport_name" placeholder="Rechercher un aéroport" value="<?php echo $airport_to_find; ?>">
                 </td>
                 <td>
