@@ -66,3 +66,9 @@ th {
 td.info {
     width: 200px;
 }
+td.update {
+    background-color: #B6D7A8;
+    border: 1px solid black;
+    padding-right: 10px;
+    padding-left: 20px;
+}

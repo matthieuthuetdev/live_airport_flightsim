@@ -46,8 +46,8 @@ if (isset($_POST["airport_name"])) {
                 <td>
                     <?php echo isset($airport_status) ? $airport_status : ""; ?>
                 </td>
-                <td>
-                    <?php echo isset($update_hour) ? $update_hour : ""; ?>
+                <td class="update">
+                Heure de M.A.J des informations des aéroports :<?php echo isset($update_hour) ? $update_hour : ""; ?>
                 </td>
             </tr>
         </table>
