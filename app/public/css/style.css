@@ -6,22 +6,23 @@ body {
 
 .information {
     background-color: white;
-    height: 20px;
+    height: 1.5em;
     border: none;
-}
-.information {
     cursor: help;
 }
 
 
+
 .sand {
     background-color: white;
-    height: 25px;
+    height: 2em;
     border: none;
 }
+
 .sand :hover {
     cursor: pointer;
 }
+
 .formulaire {
     vertical-align: middle;
 }
@@ -29,8 +30,8 @@ body {
 .offline {
     color: #980000;
     font-weight: bold;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 3em;
+    padding-right: 3em;
 
 
 
@@ -39,19 +40,23 @@ body {
 .online {
     color: #38761D;
     font-weight: bold;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 3em;
+    padding-right: 3em;
 }
 
 .atis {
     background-color: #B6D7A8;
-    width: 25px;
+    width: 2em;
     text-align: center;
 }
 
 .info {
-    border: 1px solid black;
+    border: 0.1em solid black;
     text-align: left;
+}
+
+table.info {
+    width: 50em;
 }
 
 table {
@@ -63,12 +68,13 @@ th {
     background-color: #4285F4;
 }
 
-td.info {
+/* td.info {
     width: 200px;
-}
+} */
+
 td.update {
     background-color: #B6D7A8;
-    border: 1px solid black;
-    padding-right: 10px;
-    padding-left: 20px;
+    border: 0.1em solid black;
+    padding-right: 1em;
+    padding-left: 1em;
 }
