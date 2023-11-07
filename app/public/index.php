@@ -41,7 +41,7 @@ if (isset($_POST["airport_name"])) {
                     <button type="submit" class="sand"><img src="./image/send.png" class="sand" alt="Envoyer"></button>
                 </td>
                 <td>
-                    <img src="./image/info.png" alt="bouton d'information" class="icone" title="Taper le code ICAO de l'aéroport">
+                    <img src="./image/info.png" alt="bouton d'information" class="information" title="Taper le code ICAO de l'aéroport">
                 </td>
                 <td>
                     <?php echo isset($airport_status) ? $airport_status : ""; ?>

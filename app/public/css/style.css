@@ -4,18 +4,24 @@ body {
     font-family: "Wellfleet", sans-serif;
 }
 
-.icone {
+.information {
     background-color: white;
     height: 20px;
     border: none;
 }
+.information {
+    cursor: help;
+}
+
 
 .sand {
     background-color: white;
     height: 25px;
     border: none;
 }
-
+.sand :hover {
+    cursor: pointer;
+}
 .formulaire {
     vertical-align: middle;
 }
