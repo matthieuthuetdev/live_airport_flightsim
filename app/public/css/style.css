@@ -13,13 +13,13 @@ body {
 
 
 
-.sand {
+.send {
     background-color: white;
     height: 2em;
     border: none;
 }
 
-.sand :hover {
+.send :hover {
     cursor: pointer;
 }
 
