@@ -6,11 +6,17 @@ body {
 
 .information {
     background-color: white;
-    height: 1.5em;
     border: none;
-    cursor: help;
 }
 
+
+.img_information {
+    cursor: help;
+    margin-right: 2em;
+    height: 1.5em;
+
+
+}
 
 
 .send {
@@ -69,12 +75,13 @@ th {
 }
 
 
-td.update {
+.update {
     background-color: #B6D7A8;
     border: 0.1em solid black;
     padding-right: 1em;
     padding-left: 1em;
 }
-.debug{
+
+.debug {
     color: red;
 }
