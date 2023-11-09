@@ -12,7 +12,7 @@ body {
 
 .img_information {
     cursor: help;
-    margin-right: 2em;
+    margin-right: 3em;
     height: 1.5em;
 
 
@@ -36,7 +36,6 @@ body {
 .offline {
     color: #980000;
     font-weight: bold;
-    padding-left: 3em;
     padding-right: 3em;
 
 
@@ -46,7 +45,6 @@ body {
 .online {
     color: #38761D;
     font-weight: bold;
-    padding-left: 3em;
     padding-right: 3em;
 }
 
@@ -84,4 +82,8 @@ th {
 
 .debug {
     color: red;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
 }
