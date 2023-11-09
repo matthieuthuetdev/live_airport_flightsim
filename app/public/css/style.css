@@ -15,7 +15,7 @@ body {
 
 .send {
     background-color: white;
-    height: 2em;
+    height: 2.5em;
     border: none;
 }
 
@@ -74,4 +74,7 @@ td.update {
     border: 0.1em solid black;
     padding-right: 1em;
     padding-left: 1em;
+}
+.debug{
+    color: red;
 }
