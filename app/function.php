@@ -104,7 +104,11 @@ function display_info($airport_index, $oneline, $json, $update_hour_airport)
         return;
     }
 }
-
+/**
+ * la fonction getUpdateHour permait de récuperer l'heure de mise à joure du fichier json afin de l'afficher sur la page.
+ * @param array $json
+ * @return string la fonction retourn l'heure de mise à joure du fichier json.
+ */
 function getUpdateHour($json)
 {
     $updatedat = $json["updatedAt"];
