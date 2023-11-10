@@ -120,7 +120,13 @@ function getUpdateHour($json)
     $update_hour = $hour . ":" . $minute." UTC";
     return $update_hour;
 }
-
+/**
+ * la fonction get_update_hour_airport parcoure la totalitée des élément de l'atis de l'aéroport rensègnier dans la variable $airport_index et rechurche le patèrne "recorded at" dans le tableau.
+ * @param array $json
+ * @param int $airport_index
+ * @param bool $oneline
+ * @return string la fonction retourn l'heure de mise à joure de l'atis correspondant à l'aéroport.
+ */
 function get_update_hour_airport($json, $airport_index, $oneline)
 {
     if ($oneline) {
