@@ -48,7 +48,7 @@ function status($oneline)
     if ($oneline) {
         return "<span class='online'>Connecté</span>";
     } else {
-        return "<span class='offline'>Déonnecté</span>";
+        return "<span class='offline'>Déconnecté</span>";
     }
 }
 
@@ -77,10 +77,10 @@ function getUpdateHour($json)
     $updatedat = $json["updatedAt"];
     $data = explode("T", $updatedat)[1];
     $hour_minute = explode(":", $data);
-    $hour = $hour_minute[0] + 1;
+    $hour = $hour_minute[0];
     $minute = $hour_minute[1];
 
-    $update_hour = $hour . ":" . $minute;
+    $update_hour = $hour . ":" . $minute." UTC";
     return $update_hour;
 }
 

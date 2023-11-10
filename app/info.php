@@ -13,13 +13,13 @@ $atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"];
         <th class="info">Code ICAO</th>
         <th class="info">Nom</th>
         <th class="info">Information</th>
-        <th class="info">Heure de mise à jour</th>
+        <th class="info">Heure de mise à jour de l'ATIS</th>
     </tr>
     <tr>
         <td class="info"><?php echo $airport_code; ?></td>
         <td class="info"><?php echo $airport_name; ?></td>
         <td class="info"><?php echo $information; ?></td>
-        <td class="info"><?php echo $update_hour_airport; ?></td>
+        <td class="info"><?php echo $update_hour_airport." UTC"; ?></td>
     </tr>
 </table>
 </p>
@@ -30,6 +30,7 @@ $atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"];
         <td>
             <ul>
                 <?php foreach ($atis as $atis_index) : ?>
+                  
                     <?php if (strpos($atis_index, "worldserver.ts.ivao.aero/") === false) : ?>
                         <li><?= $atis_index ?></li>
                     <?php endif; ?>

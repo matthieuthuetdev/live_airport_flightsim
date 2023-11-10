@@ -1,11 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Wellfleet&display=swap');
-body{
+
+body {
     font-family: "Wellfleet", sans-serif;
 }
-.icone {
+
+.information {
     background-color: white;
-    height: 20px;
     border: none;
+}
+
+
+.img_information {
+    cursor: help;
+    margin-right: 3em;
+    height: 1.5em;
+
+
+}
+
+
+.send {
+    background-color: white;
+    height: 2.5em;
+    border: none;
+}
+
+.send :hover {
+    cursor: pointer;
 }
 
 .formulaire {
@@ -15,8 +36,7 @@ body{
 .offline {
     color: #980000;
     font-weight: bold;
-    padding-left: 50px;
-    padding-right: 50px ;
+    padding-right: 3em;
 
 
 
@@ -25,27 +45,45 @@ body{
 .online {
     color: #38761D;
     font-weight: bold;
-    padding-left: 50px;
-    padding-right: 50px ;
+    padding-right: 3em;
 }
 
 .atis {
     background-color: #B6D7A8;
-    width: 25px;
+    width: 2em;
     text-align: center;
 }
 
 .info {
-    border: 1px solid black;
+    border: 0.1em solid black;
     text-align: left;
 }
+
+table.info {
+    width: 50em;
+}
+
 table {
     border-collapse: collapse;
 
 }
-th{
-    background-color:#4285F4;
+
+th {
+    background-color: #4285F4;
 }
-td.info {
-    width: 200px;
+
+
+.update {
+    background-color: #B6D7A8;
+    border: 0.1em solid black;
+    padding-right: 1em;
+    padding-left: 1em;
+}
+
+.debug {
+    color: red;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
 }
