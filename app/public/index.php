@@ -48,7 +48,7 @@ $update_hour = getUpdateHour($json);
                     <?php echo isset($airport_status) ? $airport_status : ""; ?>
                 </td>
                 <td class="update">
-                    Heure de M.A.J des donnée : <?php echo $api_file === false ? "    <a href='localhost/live_airport_flightsim/app/public/index.php?debug=false' title='désactiver le mode debug'><span class='debug'>DEBUG</span></a>" : $update_hour ?>
+                    Heure de M.A.J des données : <?php echo $api_file === false ? "    <a href='localhost/live_airport_flightsim/app/public/index.php?debug=false' title='désactiver le mode debug'><span class='debug'>DEBUG</span></a>" : $update_hour ?>
                 </td>
             </tr>
         </table>
