@@ -61,7 +61,12 @@ function find_airport($airport_code, $json)
     }
     return $airport_index;
 }
-
+/**
+ * la fonction status r'envoi le texte à afficher  à coté du formulaire,
+ * si l'aéroport est en ligne le texte connecté doit être afficher et sonnon le texte déconnecté doit être afficher.
+ * @param bool isoneline cette variable est r'envoyer par la fonction isoneline.
+ * @return string elle retourn le texte à afficher à coté du formulaire
+ */
 function status($oneline)
 {
     if ($oneline) {
