@@ -1,4 +1,15 @@
 <?php
+/**
+ * 
+ * la fonction load_json_file permet de charger le bon fichier JSON,
+ * si la variable load est égale à true le fichier distant sera charger
+ * si la derrnière mise à jour est plus vieille que du nombre de seconde contenu dans la variable time,
+ * sinon le fichier mis à jour lors de la derrnière mise à joure sera charger
+ * 
+ * @param bool loader cette variable définit quelle fichier est chargé,
+ * @param int time cette variable inicialise le temps entre chaque réacutalisation du fichier JSON.
+ * @return array json la fonction retourn le un tableau extrait du fichier json
+ */
 function load_json_file($loader, $time)
 {
     if ($loader) {
