@@ -54,7 +54,6 @@ $update_hour = getUpdateHour($json);
         </table>
     </form>
     <?php echo isset($info) ? $info : ""; ?>
-    <a href="localhost/live_airport_flightsim/app/public/index.php?debug=false" title="désactiver le mode debug"></a><span class='debug'>DEBUG</span>
 </body>
 
 </html>
