@@ -39,7 +39,15 @@ function load_json_file($loader, $time)
     $json = json_decode($file, true);
     return $json;
 }
-
+/**
+ * la fonction find_airport parcour le tableau contenu dans la variable json
+ * à la rechurche de l'aéroport que l'utilisateur à saisi.
+ * 
+ * @param string airport_code cette variable contient la saisie de l'utilisateur.
+ * @param array JSON variable r'envoyer par la fonction load_son_file.
+ * @return int airport_index si l'aéroport à été trouver la fonction retourn l'index de l'aéroport.
+ * @return null airport_index si l'aéroport n'a pas été trouver la fonction retnurn null.
+ */
 function find_airport($airport_code, $json)
 {
     $airport_to_find = strtoupper($airport_code) . "_TWR";
