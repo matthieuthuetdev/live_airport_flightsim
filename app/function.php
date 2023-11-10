@@ -6,9 +6,9 @@
  * si la derrnière mise à jour est plus vieille que du nombre de seconde contenu dans la variable time,
  * sinon le fichier mis à jour lors de la derrnière mise à joure sera charger
  * 
- * @param bool loader cette variable définit quelle fichier est chargé,
- * @param int time cette variable inicialise le temps entre chaque réacutalisation du fichier JSON.
- * @return array json la fonction retourn le un tableau extrait du fichier json
+ * @param bool $loader cette variable définit quelle fichier est chargé,
+ * @param int $time cette variable inicialise le temps entre chaque réacutalisation du fichier JSON.
+ * @return array $json la fonction retourn le un tableau extrait du fichier json
  */
 function load_json_file($loader, $time)
 {
@@ -43,8 +43,8 @@ function load_json_file($loader, $time)
  * la fonction find_airport parcour le tableau contenu dans la variable json
  * à la rechurche de l'aéroport que l'utilisateur à saisi.
  * 
- * @param string airport_code cette variable contient la saisie de l'utilisateur.
- * @param array JSON variable r'envoyer par la fonction load_son_file.
+ * @param string $airport_code cette variable contient la saisie de l'utilisateur.
+ * @param array $json variable r'envoyer par la fonction load_son_file.
  * @return int airport_index si l'aéroport à été trouver la fonction retourn l'index de l'aéroport.
  * @return null airport_index si l'aéroport n'a pas été trouver la fonction retnurn null.
  */
@@ -64,7 +64,7 @@ function find_airport($airport_code, $json)
 /**
  * la fonction status r'envoi le texte à afficher  à coté du formulaire,
  * si l'aéroport est en ligne le texte connecté doit être afficher et sonnon le texte déconnecté doit être afficher.
- * @param bool isoneline cette variable est r'envoyer par la fonction isoneline.
+ * @param bool $isoneline cette variable est r'envoyer par la fonction isoneline.
  * @return string elle retourn le texte à afficher à coté du formulaire
  */
 function status($oneline)
@@ -75,7 +75,11 @@ function status($oneline)
         return "<span class='offline'>Déconnecté</span>";
     }
 }
-
+/**
+ * la fonction isonline vérifit si l'index de l'aéroport est définit ou si il est à null.
+ * @param int @param null airport_index
+ * @return bool retourn false si l'aéroport est hors ligne et retourn true si l'aéroport est en ligne.
+ */
 function isonline($airport_index)
 {
     if ($airport_index !== null) {
@@ -84,7 +88,12 @@ function isonline($airport_index)
         return false;
     }
 }
-
+/**
+ * la fonction display_info inclu le fichier ou sont contenu les information de l'aéroport courrent.
+ * @param int $airport_index
+ * @param bool $online la fonction ne s'execute que si $online est égale à true.
+ * @return string la fonction retourn les information à afficher sous la forme d'un code html
+ */
 function display_info($airport_index, $oneline, $json, $update_hour_airport)
 {
     if ($oneline) {
