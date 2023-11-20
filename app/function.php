@@ -1,4 +1,18 @@
 <?php
+
+/**
+ * 
+ * la fonction load_json_file permet de charger le bon fichier JSON,
+ * si la variable load est égale à true le fichier distant sera chargé
+ * si la dernière mise à jour est plus vieille que du nombre de seconde contenues dans la variable time,
+ * sinon le fichier mis à jour lors de la dernière mise à jour sera chargé
+ * 
+ * @param bool $loader cette variable définit quel fichier est chargé,
+ * @param int $time cette variable initialise le temps entre chaque réactualisation du fichier JSON.
+ * @return array $json la fonction retourne un tableau associatif avec les données du fichier json
+ */
+
+
 function load_json_file($loader, $time)
 {
     if ($loader) {
@@ -29,6 +43,17 @@ function load_json_file($loader, $time)
     return $json;
 }
 
+/**
+ * la fonction find_airport parcourt la variable json 
+ * à la recherche de l'aéroport que l'utilisateur a saisi.
+ * 
+ * @param string $airport_code cette variable contient la saisie de l'utilisateur.
+ * @param array $json variable renvoyer par la fonction load_son_file.
+ * @return int airport_index si l'aéroport a été trouver la fonction retourne l'index de l'aéroport.
+ * @return null airport_index si l'aéroport n'a pas été trouver la fonction retourne null.
+ */
+
+
 function find_airport($airport_code, $json)
 {
     $airport_to_find = strtoupper($airport_code) . "_TWR";
@@ -43,6 +68,14 @@ function find_airport($airport_code, $json)
     return $airport_index;
 }
 
+/**
+ * la fonction status renvoi le texte à afficher à côté du formulaire,
+ * si l'aéroport est en ligne le texte connecté doit être afficher et sinon le texte déconnecté doit être afficher.
+ * @param bool $isoneline cette variable est renvoyer par la fonction isoneline.
+ * @return string elle retourne le texte à afficher à côté du formulaire
+ */
+
+
 function status($oneline)
 {
     if ($oneline) {
@@ -52,6 +85,12 @@ function status($oneline)
     }
 }
 
+/**
+ * la fonction isonline vérifit si l'index de l'aéroport est définit ou si il est à null.
+ * @param int @param null airport_index
+ * @return bool retourn false si l'aéroport est hors ligne et retourn true si l'aéroport est en ligne.
+ */
+
 function isonline($airport_index)
 {
     if ($airport_index !== null) {
@@ -60,6 +99,14 @@ function isonline($airport_index)
         return false;
     }
 }
+
+/**
+ * la fonction display_info inclut le fichier ou sont contenu les informations de l'aéroport courant.
+ * @param int $airport_index
+ * @param bool $oneline la fonction ne s'exécute que si $online est égale à true.
+ * @return string la fonction retourne les informations à afficher sous la forme d'un code html
+ */
+
 
 function display_info($airport_index, $oneline, $json, $update_hour_airport)
 {
@@ -72,6 +119,13 @@ function display_info($airport_index, $oneline, $json, $update_hour_airport)
     }
 }
 
+/**
+ * la fonction getUpdateHour permet de récupérer l'heure de mise à jour du fichier json afin de l'afficher sur la page.
+ * @param array $json
+ * @return string la fonction retourne l’heure de mise à jour du fichier json.
+ */
+
+
 function getUpdateHour($json)
 {
     $updatedat = $json["updatedAt"];
@@ -80,9 +134,18 @@ function getUpdateHour($json)
     $hour = $hour_minute[0];
     $minute = $hour_minute[1];
 
-    $update_hour = $hour . ":" . $minute." UTC";
+    $update_hour = $hour . ":" . $minute . " UTC";
     return $update_hour;
 }
+
+/**
+ * la fonction get_update_hour_airport parcoure la totalité des éléments de l'atis de l'aéroport renseigner dans la variable $airport_index et recherche le paterne "recorded at" dans le tableau.
+ * @param array $json
+ * @param int $airport_index
+ * @param bool $oneline
+ * @return string la fonction retourne l’heure de mise à jour de l'atis correspondant à l'aéroport.
+ */
+
 
 function get_update_hour_airport($json, $airport_index, $oneline)
 {
