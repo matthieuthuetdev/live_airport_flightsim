@@ -4,26 +4,15 @@ body {
     font-family: "Wellfleet", sans-serif;
 }
 
-.information {
-    background-color: white;
-    border: none;
-}
 
-.img_information {
-    cursor: help;
-    margin-right: 3em;
-    height: 1.5em;
-}
 
 .send {
     background-color: white;
     height: 2.5em;
     border: none;
-}
-
-.send :hover {
     cursor: pointer;
 }
+
 
 .formulaire {
     vertical-align: middle;
@@ -52,9 +41,7 @@ body {
     text-align: left;
 }
 
-table.info {
-    width: 50em;
-}
+
 
 table {
     border-collapse: collapse;
@@ -67,8 +54,6 @@ th {
 .update {
     background-color: #B6D7A8;
     border: 0.1em solid black;
-    padding-right: 1em;
-    padding-left: 1em;
 }
 
 .debug {
@@ -92,6 +77,10 @@ li.menu {
     display: inline;
     margin-right: 20px;
 }
+table.info {
+    width: 70%;
+}
+
 
 @media screen and (max-width: 750px) {
     ul.menu {
@@ -103,6 +92,18 @@ li.menu {
         margin-right: 0;
         margin-bottom: 10px;
     }
+
+    .img_information {
+        display: none;
+    }
+
+    table.info {
+        width: 70%;
+    }
+.big_screan{
+    display: none;
+}
+
 }
 
 @media screen and (min-width: 751px) {
@@ -115,4 +116,22 @@ li.menu {
         margin-right: 20px;
         margin-bottom: 0;
     }
+
+    .img_information {
+        cursor: help;
+        margin-right: 3em;
+        height: 1.5em;
+    }
+
+    .update {
+        padding-right: 1em;
+        padding-left: 1em;
+
+    }
+    .small_screan{
+        display: none;
+    }
+
+
+
 }
