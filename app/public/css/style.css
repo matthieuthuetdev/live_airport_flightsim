@@ -21,13 +21,11 @@ body {
 .offline {
     color: #980000;
     font-weight: bold;
-    padding-right: 3em;
 }
 
 .online {
     color: #38761D;
     font-weight: bold;
-    padding-right: 3em;
 }
 
 .atis {
@@ -77,9 +75,7 @@ li.menu {
     display: inline;
     margin-right: 20px;
 }
-table.info {
-    width: 70%;
-}
+
 
 
 @media screen and (max-width: 750px) {
@@ -100,10 +96,22 @@ table.info {
     table.info {
         width: 70%;
     }
-.big_screan{
-    display: none;
-}
 
+    .big_screan {
+        display: none;
+    }
+    .update{
+        margin-top: 1em;
+    }
+    table.info {
+        width: 70%;
+    }
+    table.info {
+        width: 90%;
+    }
+    th{
+        width: 40%;
+    }
 }
 
 @media screen and (min-width: 751px) {
@@ -128,9 +136,23 @@ table.info {
         padding-left: 1em;
 
     }
-    .small_screan{
+
+    .small_screan {
         display: none;
     }
+
+    .online {
+        padding-right: 3em;
+    }
+
+    .offline {
+        padding-right: 3em;
+
+    }
+    table.info {
+        width: 70%;
+    }
+    
 
 
 
