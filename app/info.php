@@ -44,7 +44,7 @@ $atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"];
 </table>
 
 </p>
-<table class="info">
+<table class="info atis">
     <tr>
         <td class="atis">A<br>T<br>I<br>S</td>
         <td>

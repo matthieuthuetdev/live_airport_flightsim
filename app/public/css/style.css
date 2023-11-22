@@ -28,7 +28,7 @@ body {
     font-weight: bold;
 }
 
-.atis {
+td.atis {
     background-color: #B6D7A8;
     width: 2em;
     text-align: center;
@@ -52,6 +52,7 @@ th {
 .update {
     background-color: #B6D7A8;
     border: 0.1em solid black;
+
 }
 
 .debug {
@@ -102,16 +103,24 @@ li.menu {
     }
     .update{
         margin-top: 1em;
-    }
-    table.info {
-        width: 70%;
+        width: 90%;
     }
     table.info {
         width: 90%;
     }
+
     th{
         width: 40%;
     }
+.small_screan{
+    margin-left: auto;
+    margin-right: auto;
+}
+.atis{
+    margin-left: auto;
+    margin-right: auto;
+}
+
 }
 
 @media screen and (min-width: 751px) {
