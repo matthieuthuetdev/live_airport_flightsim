@@ -4,30 +4,15 @@ body {
     font-family: "Wellfleet", sans-serif;
 }
 
-.information {
-    background-color: white;
-    border: none;
-}
-
-
-.img_information {
-    cursor: help;
-    margin-right: 3em;
-    height: 1.5em;
-
-
-}
 
 
 .send {
     background-color: white;
     height: 2.5em;
     border: none;
-}
-
-.send :hover {
     cursor: pointer;
 }
+
 
 .formulaire {
     vertical-align: middle;
@@ -36,19 +21,14 @@ body {
 .offline {
     color: #980000;
     font-weight: bold;
-    padding-right: 3em;
-
-
-
 }
 
 .online {
     color: #38761D;
     font-weight: bold;
-    padding-right: 3em;
 }
 
-.atis {
+td.atis {
     background-color: #B6D7A8;
     width: 2em;
     text-align: center;
@@ -59,31 +39,130 @@ body {
     text-align: left;
 }
 
-table.info {
-    width: 50em;
-}
+
 
 table {
     border-collapse: collapse;
-
 }
 
 th {
     background-color: #4285F4;
 }
 
-
 .update {
     background-color: #B6D7A8;
     border: 0.1em solid black;
-    padding-right: 1em;
-    padding-left: 1em;
+
 }
 
 .debug {
     color: red;
     text-decoration: none;
 }
-a{
+
+a {
     text-decoration: none;
+}
+
+ul.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+li.menu {
+    display: inline;
+    margin-right: 20px;
+}
+
+
+
+@media screen and (max-width: 750px) {
+    ul.menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    li.menu {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .img_information {
+        display: none;
+    }
+
+    table.info {
+        width: 70%;
+    }
+
+    .big_screan {
+        display: none;
+    }
+    .update{
+        margin-top: 1em;
+        width: 90%;
+    }
+    table.info {
+        width: 90%;
+    }
+
+    th{
+        width: 40%;
+    }
+.small_screan{
+    margin-left: auto;
+    margin-right: auto;
+}
+.atis{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+}
+
+@media screen and (min-width: 750px) {
+    ul.menu {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    li.menu {
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+
+    .img_information {
+        cursor: help;
+        margin-right: 3em;
+        height: 1.5em;
+    }
+
+    .update {
+        padding-right: 1em;
+        padding-left: 1em;
+
+    }
+
+    .small_screan {
+        display: none;
+    }
+
+    .online {
+        padding-right: 3em;
+    }
+
+    .offline {
+        padding-right: 3em;
+
+    }
+    table.info {
+        width: 70%;
+    }
+    
+
+
+
 }

@@ -8,7 +8,7 @@ $airport_code = $json["clients"]["atcs"][$airport_index]["callsign"];
 $atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"];
 ?>
 <p>
-<table class="info">
+<table class="info big_screan">
     <tr>
         <th class="info">Code ICAO</th>
         <th class="info">Nom</th>
@@ -23,8 +23,28 @@ $atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"];
     </tr>
 </table>
 </p>
-<p></p>
-<table class="info">
+<p>
+<table class="info small_screan">
+    <tr>
+        <th class="info">Code ICAO</td>
+        <td class="info"><?php echo $airport_code; ?></td>
+    </tr>
+    <tr>
+        <th class="info">Nom</td>
+        <td class="info"><?php echo $airport_name; ?></td>
+    </tr>
+    <tr>
+        <th class="info">Information</td>
+        <td class="info"><?php echo $information; ?></td>
+    </tr>
+    <tr>
+        <th class="info">Heure de mise à jour de l'ATIS</td>
+        <td class="info"><?php echo $update_hour_airport." UTC"; ?></td>
+    </tr>
+</table>
+
+</p>
+<table class="info atis">
     <tr>
         <td class="atis">A<br>T<br>I<br>S</td>
         <td>

@@ -33,26 +33,23 @@ $update_hour = getUpdateHour($json);
 
 <body>
     <form method="post" action="">
-        <table class="formulaire">
-            <tr>
-                <td>
-                    <input type="text" id="airport_name" name="airport_name" placeholder="Rechercher un aéroport" value="<?php echo $airport_to_find; ?>">
-                </td>
-                <td>
-                    <button type="submit" class="send"><img src="./image/send.png" class="send" alt="Envoyer"></button>
-                </td>
-                <td>
-                    <img src="./image/info.png" alt="bouton d'information" class="img_information" title="Taper le code ICAO de l'aéroport">
-                </td>
-                <td>
-                    <?php echo isset($airport_status) ? $airport_status : ""; ?>
-                </td>
-                <td class="update">
-                    Heure de M.A.J des données : <?php echo $api_file === false ? "    <a href='localhost/live_airport_flightsim/app/public/index.php?debug=false' title='désactiver le mode debug'><span class='debug'>DEBUG</span></a>" : $update_hour ?>
-                </td>
-            </tr>
-        </table>
-    </form>
+        <ul class="menu">
+            <li class="menu">
+            <input type="text" id="airport_name" name="airport_name" placeholder="Rechercher un aéroport" value="<?php echo $airport_to_find; ?>">
+            </li>
+            <li class="menu">
+            <button type="submit" class="send"><img src="./image/send.png" class="send" alt="Envoyer"></button>
+            </li>
+            <li class="menu">
+            <img src="./image/info.png" alt="bouton d'information" class="img_information" title="Taper le code ICAO de l'aéroport">
+            </li>
+            <li>
+            <?php echo isset($airport_status) ? $airport_status : ""; ?>
+            </li>
+            <li class="update menu">
+            Heure de M.A.J des données : <?php echo $api_file === false ? "    <a href='localhost/live_airport_flightsim/app/public/index.php?debug=false' title='désactiver le mode debug'><span class='debug'>DEBUG</span></a>" : $update_hour ?>
+            </li>
+        </ul>
     <?php echo isset($info) ? $info : ""; ?>
 </body>
 
