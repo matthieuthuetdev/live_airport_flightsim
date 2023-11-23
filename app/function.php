@@ -56,7 +56,7 @@ function load_json_file($loader, $time)
 
 function find_airport($airport_code, $json)
 {
-    $airport_to_find = strtoupper($airport_code) . "_TWR";
+    $airport_to_find = strtoupper(trim($airport_code)) . "_TWR";
     $airport_index = null;
 
     foreach ($json["clients"]["atcs"] as $index => $current_airport) {
