@@ -56,11 +56,21 @@ function load_json_file($loader, $time)
 
 function find_airport($airport_code, $json)
 {
-    $airport_to_find = strtoupper(trim($airport_code)) . "_TWR";
+    $airport_to_find_TWR = strtoupper(trim($airport_code)) . "_TWR";
+    $airport_to_find_APP = strtoupper(trim($airport_code)) . "_APP";
+    $airport_to_find_GND = strtoupper(trim($airport_code)) . "_GND";
     $airport_index = null;
 
     foreach ($json["clients"]["atcs"] as $index => $current_airport) {
-        if (is_int(strpos($current_airport["callsign"], $airport_to_find))) {
+        if (is_int(strpos($current_airport["callsign"], $airport_to_find_TWR))) {
+            $airport_index = $index;
+            break;
+        }
+        if (is_int(strpos($current_airport["callsign"], $airport_to_find_APP))) {
+            $airport_index = $index;
+            break;
+        }
+        if (is_int(strpos($current_airport["callsign"], $airport_to_find_GND))) {
             $airport_index = $index;
             break;
         }
