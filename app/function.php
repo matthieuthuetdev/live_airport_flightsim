@@ -63,19 +63,23 @@ function find_airport($airport_code, $json)
 
     foreach ($json["clients"]["atcs"] as $index => $current_airport) {
         if (is_int(strpos($current_airport["callsign"], $airport_to_find_TWR))) {
-            $airport_index = $index;
+            return $index;
             break;
         }
         if (is_int(strpos($current_airport["callsign"], $airport_to_find_APP))) {
-            $airport_index = $index;
-            break;
+            if (is_int(strpos($current_airport["callsign"], $airport_to_find_TWR))) {
+                return $index;
+                break;
+            }
+        }else{
+            $airport_index_app = $index;
+
         }
         if (is_int(strpos($current_airport["callsign"], $airport_to_find_GND))) {
-            $airport_index = $index;
+            return $index;
             break;
         }
     }
-    return $airport_index;
 }
 
 /**
