@@ -54,34 +54,30 @@ function load_json_file($loader, $time)
  */
 
 
-function find_airport($airport_code, $json)
-{
-    $airport_to_find_TWR = strtoupper(trim($airport_code)) . "_TWR";
-    $airport_to_find_APP = strtoupper(trim($airport_code)) . "_APP";
-    $airport_to_find_GND = strtoupper(trim($airport_code)) . "_GND";
-    $airport_index = null;
-
-    foreach ($json["clients"]["atcs"] as $index => $current_airport) {
-        if (is_int(strpos($current_airport["callsign"], $airport_to_find_TWR))) {
-            return $index;
-            break;
-        }
-        if (is_int(strpos($current_airport["callsign"], $airport_to_find_APP))) {
-            if (is_int(strpos($current_airport["callsign"], $airport_to_find_TWR))) {
-                return $index;
-                break;
-            }
-        }else{
-            $airport_index_app = $index;
-
-        }
-        if (is_int(strpos($current_airport["callsign"], $airport_to_find_GND))) {
-            return $index;
-            break;
-        }
-    }
-}
-
+ function find_airport($airport_code, $json)
+ {
+     $airport_to_find_TWR = strtoupper(trim($airport_code)) . "_TWR";
+     $airport_to_find_APP = strtoupper(trim($airport_code)) . "_APP";
+     $airport_index_TWR = null;
+     $airport_index_APP = null;
+ 
+     foreach ($json["clients"]["atcs"] as $index => $current_airport) {
+         if (is_int(strpos($current_airport["callsign"], $airport_to_find_TWR))) {
+             $airport_index_TWR = $index;
+             break;
+         }
+         
+         if (is_int(strpos($current_airport["callsign"], $airport_to_find_APP)) && $airport_index_TWR === null) {
+             $airport_index_APP = $index;
+         }
+     }
+ 
+     if ($airport_index_TWR !== null) {
+         return $airport_index_TWR;
+     } else {
+         return $airport_index_APP;
+     }
+ }
 /**
  * la fonction status renvoi le texte à afficher à côté du formulaire,
  * si l'aéroport est en ligne le texte connecté doit être afficher et sinon le texte déconnecté doit être afficher.
