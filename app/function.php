@@ -18,10 +18,12 @@ function load_json_file($loader, $time)
     if ($loader) {
         if (file_exists("../direct_airport_status.json")) {
             $json = json_decode(file_get_contents("../direct_airport_status.json"), true);
-            $update_time_parts = explode("T", $json["updatedAt"]);
-            $update_date = $update_time_parts[0];
-            $update_time = substr($update_time_parts[1], 0, 5);
-            $update_time = strtotime("$update_date $update_time");
+            if ($json !== null) {
+                $update_time_parts = explode("T", $json["updatedAt"]);
+                $update_date = $update_time_parts[0];
+                $update_time = substr($update_time_parts[1], 0, 5);
+                $update_time = strtotime("$update_date $update_time");
+            }
             $current_time = time();
 
             if ($current_time - $update_time >= $time) {
@@ -93,14 +95,19 @@ function find_airport($airport_code, $json)
  */
 
 
-function status($oneline)
+function status($oneline, $json)
 {
-    if ($oneline) {
-        return "<span class='online'>Connecté</span>";
+    if ($json !== null) {
+        if ($oneline) {
+            return "<span class='online'>Connecté</span>";
+        } else {
+            return "<span class='offline'>Déconnecté</span>";
+        }
     } else {
-        return "<span class='offline'>Déconnecté</span>";
+        return "<span class='offline'>Le fichier json est vide ou incomplet </span>";
     }
 }
+
 
 /**
  * la fonction isonline vérifit si l'index de l'aéroport est définit ou si il est à null.
@@ -145,14 +152,18 @@ function display_info($airport_index, $oneline, $json, $update_hour_airport)
 
 function getUpdateHour($json)
 {
-    $updatedat = $json["updatedAt"];
-    $data = explode("T", $updatedat)[1];
-    $hour_minute = explode(":", $data);
-    $hour = $hour_minute[0];
-    $minute = $hour_minute[1];
+    if ($json !== null) {
+        $updatedat = $json["updatedAt"];
+        $data = explode("T", $updatedat)[1];
+        $hour_minute = explode(":", $data);
+        $hour = $hour_minute[0];
+        $minute = $hour_minute[1];
 
-    $update_hour = $hour . ":" . $minute . " UTC";
-    return $update_hour;
+        $update_hour = $hour . ":" . $minute . " UTC";
+        return $update_hour;
+    } else {
+        return "Not found.";
+    }
 }
 
 /**
