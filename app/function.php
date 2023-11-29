@@ -18,10 +18,12 @@ function load_json_file($loader, $time)
     if ($loader) {
         if (file_exists("../direct_airport_status.json")) {
             $json = json_decode(file_get_contents("../direct_airport_status.json"), true);
-            $update_time_parts = explode("T", $json["updatedAt"]);
-            $update_date = $update_time_parts[0];
-            $update_time = substr($update_time_parts[1], 0, 5);
-            $update_time = strtotime("$update_date $update_time");
+            if ($json !== null) {
+                $update_time_parts = explode("T", $json["updatedAt"]);
+                $update_date = $update_time_parts[0];
+                $update_time = substr($update_time_parts[1], 0, 5);
+                $update_time = strtotime("$update_date $update_time");
+            }
             $current_time = time();
 
             if ($current_time - $update_time >= $time) {
@@ -89,18 +91,24 @@ function find_airport($airport_code, $json)
  * la fonction status renvoi le texte à afficher à côté du formulaire,
  * si l'aéroport est en ligne le texte connecté doit être afficher et sinon le texte déconnecté doit être afficher.
  * @param bool $isoneline cette variable est renvoyer par la fonction isoneline.
+ * @param array $json 
  * @return string elle retourne le texte à afficher à côté du formulaire
  */
 
 
-function status($oneline)
+function status($oneline, $json)
 {
-    if ($oneline) {
-        return "<span class='online'>Connecté</span>";
+    if ($json !== null) {
+        if ($oneline) {
+            return "<span class='online'>Connecté</span>";
+        } else {
+            return "<span class='offline'>Déconnecté</span>";
+        }
     } else {
-        return "<span class='offline'>Déconnecté</span>";
+        return "<span class='offline'>Erreur lors du chargement des données  </span>";
     }
 }
+
 
 /**
  * la fonction isonline vérifit si l'index de l'aéroport est définit ou si il est à null.
@@ -121,6 +129,10 @@ function isonline($airport_index)
  * la fonction display_info inclut le fichier ou sont contenu les informations de l'aéroport courant.
  * @param int $airport_index
  * @param bool $oneline la fonction ne s'exécute que si $online est égale à true.
+ * @param array $json
+ * @param string $update_hour_airport L'heure de mise à jour de l'aéroport sera affichée à l'utilisateur.
+
+
  * @return string la fonction retourne les informations à afficher sous la forme d'un code html
  */
 
@@ -145,14 +157,18 @@ function display_info($airport_index, $oneline, $json, $update_hour_airport)
 
 function getUpdateHour($json)
 {
-    $updatedat = $json["updatedAt"];
-    $data = explode("T", $updatedat)[1];
-    $hour_minute = explode(":", $data);
-    $hour = $hour_minute[0];
-    $minute = $hour_minute[1];
+    if ($json !== null) {
+        $updatedat = $json["updatedAt"];
+        $data = explode("T", $updatedat)[1];
+        $hour_minute = explode(":", $data);
+        $hour = $hour_minute[0];
+        $minute = $hour_minute[1];
 
-    $update_hour = $hour . ":" . $minute . " UTC";
-    return $update_hour;
+        $update_hour = $hour . ":" . $minute . " UTC";
+        return $update_hour;
+    } else {
+        return "Not found.";
+    }
 }
 
 /**

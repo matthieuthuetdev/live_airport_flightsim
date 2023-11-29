@@ -11,8 +11,11 @@ $json = load_json_file($api_file, 300);
 if (isset($_POST["airport_name"])) {
     
     $airport_code = $_POST["airport_name"];
+    $airport_index = null;
+    if($json !== null){
     $airport_index = find_airport($airport_code, $json);
-    $airport_status = status($airport_index);
+    }
+    $airport_status = status($airport_index,$json);
     $oneline = isonline($airport_index);
     $update_hour_airport = get_update_hour_airport($json, $airport_index, $oneline);
 
