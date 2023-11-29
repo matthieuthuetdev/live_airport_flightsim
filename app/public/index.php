@@ -13,7 +13,8 @@ if (isset($_POST["airport_name"])) {
     $airport_code = $_POST["airport_name"];
     $airport_index = null;
     if($json !== null){
-    $airport_index = find_airport($airport_code, $json);
+        $airport_station_index = find_airport($airport_code, $json);
+        $airport_index = $airport_station_index["airport_index"];
     }
     $airport_status = status($airport_index,$json);
     $oneline = isonline($airport_index);

@@ -80,13 +80,16 @@ function find_airport($airport_code, $json)
     }
 
     if ($airport_index_TWR !== null) {
-        return $airport_index_TWR;
+        $airport_index = $airport_index_TWR;
     } else if ($airport_index_APP !== null) {
-        return $airport_index_APP;
+        $airport_index = $airport_index_APP;
     } else if ($airport_index_GND !== null) {
-        return $airport_index_GND;
+        $airport_index = $airport_index_GND;
     }
+    $airport_station_index = array("airport_index" => $airport_index , "TWR_index" => $airport_index_TWR , "APP_index" => $airport_index_APP , "GND_index" => $airport_index_GND);
+return $airport_station_index;
 }
+
 /**
  * la fonction status renvoi le texte à afficher à côté du formulaire,
  * si l'aéroport est en ligne le texte connecté doit être afficher et sinon le texte déconnecté doit être afficher.
