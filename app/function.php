@@ -105,7 +105,7 @@ function status($oneline, $json)
             return "<span class='offline'>Déconnecté</span>";
         }
     } else {
-        return "<span class='offline'>Le fichier json est vide ou incomplet </span>";
+        return "<span class='offline'>Erreur lors du chargement des données  </span>";
     }
 }
 
