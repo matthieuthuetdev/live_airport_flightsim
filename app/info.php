@@ -22,19 +22,19 @@ $atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"];
         <td class="info"><?php echo $update_hour_airport . " UTC"; ?></td>
     </tr>
     <tr>
-        <td class="info"></td>
-        <td class="info"></td>
-        <td class="info"></td>
-        <td class="info"></td>
-    </tr>
-    <tr>
-        <td class="info"></td>
+        <td class="info"><?php echo $airport_station_index["airport_to_find_TWR"] ?></td>
         <td class="info"></td>
         <td class="info"></td>
         <td class="info"></td>
     </tr>
     <tr>
+        <td class="info"><?php echo $airport_station_index["airport_to_find_APP"] ?></td>
         <td class="info"></td>
+        <td class="info"></td>
+        <td class="info"></td>
+    </tr>
+    <tr>
+        <td class="info"><?php echo $airport_station_index["airport_to_find_GND"] ?></td>
         <td class="info"></td>
         <td class="info"></td>
         <td class="info"></td>

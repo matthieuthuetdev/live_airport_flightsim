@@ -86,8 +86,7 @@ function find_airport($airport_code, $json)
     } else if ($airport_index_GND !== null) {
         $airport_index = $airport_index_GND;
     }
-    $airport_station_index = array("airport_index" => $airport_index , "TWR_index" => $airport_index_TWR , "APP_index" => $airport_index_APP , "GND_index" => $airport_index_GND);
-return $airport_station_index;
+    return array("airport_index" => $airport_index ,"TWR_index" => $airport_index_TWR , "APP_index" => $airport_index_APP , "GND_index" => $airport_index_GND , "airport_to_find_TWR" => $airport_to_find_TWR , "airport_to_find_APP" => $airport_to_find_APP , "airport_to_find_GND" => $airport_to_find_GND);
 }
 
 /**
@@ -140,7 +139,7 @@ function isonline($airport_index)
  */
 
 
-function display_info($airport_index, $oneline, $json, $update_hour_airport)
+function display_info($airport_index, $oneline, $json, $update_hour_airport, $airport_station_index)
 {
     if ($oneline) {
         ob_start();
