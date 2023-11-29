@@ -19,7 +19,25 @@ $atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"];
         <td class="info"><?php echo $airport_code; ?></td>
         <td class="info"><?php echo $airport_name; ?></td>
         <td class="info"><?php echo $information; ?></td>
-        <td class="info"><?php echo $update_hour_airport." UTC"; ?></td>
+        <td class="info"><?php echo $update_hour_airport . " UTC"; ?></td>
+    </tr>
+    <tr>
+        <td class="info"></td>
+        <td class="info"></td>
+        <td class="info"></td>
+        <td class="info"></td>
+    </tr>
+    <tr>
+        <td class="info"></td>
+        <td class="info"></td>
+        <td class="info"></td>
+        <td class="info"></td>
+    </tr>
+    <tr>
+        <td class="info"></td>
+        <td class="info"></td>
+        <td class="info"></td>
+        <td class="info"></td>
     </tr>
 </table>
 </p>
@@ -39,7 +57,7 @@ $atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"];
     </tr>
     <tr>
         <th class="info">Heure de mise à jour de l'ATIS</td>
-        <td class="info"><?php echo $update_hour_airport." UTC"; ?></td>
+        <td class="info"><?php echo $update_hour_airport . " UTC"; ?></td>
     </tr>
 </table>
 
@@ -50,7 +68,7 @@ $atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"];
         <td>
             <ul>
                 <?php foreach ($atis as $atis_index) : ?>
-                  
+
                     <?php if (strpos($atis_index, "worldserver.ts.ivao.aero/") === false) : ?>
                         <li><?= $atis_index ?></li>
                     <?php endif; ?>
