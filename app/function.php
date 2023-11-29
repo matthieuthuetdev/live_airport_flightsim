@@ -91,6 +91,7 @@ function find_airport($airport_code, $json)
  * la fonction status renvoi le texte à afficher à côté du formulaire,
  * si l'aéroport est en ligne le texte connecté doit être afficher et sinon le texte déconnecté doit être afficher.
  * @param bool $isoneline cette variable est renvoyer par la fonction isoneline.
+ * @param array $json 
  * @return string elle retourne le texte à afficher à côté du formulaire
  */
 
@@ -128,6 +129,10 @@ function isonline($airport_index)
  * la fonction display_info inclut le fichier ou sont contenu les informations de l'aéroport courant.
  * @param int $airport_index
  * @param bool $oneline la fonction ne s'exécute que si $online est égale à true.
+ * @param array $json
+ * @param string $update_hour_airport L'heure de mise à jour de l'aéroport sera affichée à l'utilisateur.
+
+
  * @return string la fonction retourne les informations à afficher sous la forme d'un code html
  */
 
