@@ -128,6 +128,52 @@ function isonline($airport_index)
 }
 
 /**
+ * la fonction isonline vérifit si l'index de l'aéroport est définit ou si il est à null.
+ * @param int @param null airport_index
+ * @return bool retourn false si l'aéroport est hors ligne et retourn true si l'aéroport est en ligne.
+ */
+
+ function isonline_TWR($station_index)
+ {
+     if ($station_index !== null) {
+         return true;
+     } else {
+         return false;
+     }
+ }
+ 
+/**
+ * la fonction isonline vérifit si l'index de l'aéroport est définit ou si il est à null.
+ * @param int @param null airport_index
+ * @return bool retourn false si l'aéroport est hors ligne et retourn true si l'aéroport est en ligne.
+ */
+
+ function isonline_APP($station_index)
+ {
+     if ($station_index !== null) {
+         return true;
+     } else {
+         return false;
+     }
+ }
+ 
+ /**
+ * la fonction isonline vérifit si l'index de l'aéroport est définit ou si il est à null.
+ * @param int @param null airport_index
+ * @return bool retourn false si l'aéroport est hors ligne et retourn true si l'aéroport est en ligne.
+ */
+
+function isonline_GND($station_index)
+{
+    if ($station_index !== null) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+/**
  * la fonction display_info inclut le fichier ou sont contenu les informations de l'aéroport courant.
  * @param int $airport_index
  * @param bool $oneline la fonction ne s'exécute que si $online est égale à true.
@@ -139,7 +185,7 @@ function isonline($airport_index)
  */
 
 
-function display_info($airport_index, $oneline, $json, $update_hour_airport, $airport_station_index)
+function display_info($airport_index, $oneline, $json, $update_hour_airport, $airport_station_index, $oneline_TWR, $oneline_APP, $oneline_GND)
 {
     if ($oneline) {
         ob_start();
