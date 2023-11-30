@@ -23,7 +23,7 @@ if ($GND_index !== null) {
     <tr>
         <th class="info">Code ICAO</th>
         <th class="info">Nom</th>
-        <th class="info">Statu</th>
+        <th class="info">Statut</th>
         <th class="info">Temps de connexion</th>
     </tr>
     <tr>
@@ -80,6 +80,7 @@ if ($GND_index !== null) {
                 <?php endforeach; ?>
             </ul>
         </td>
+        <td class="revision"><?php echo $information ?></td>
     </tr>
 </table>
 </p>
