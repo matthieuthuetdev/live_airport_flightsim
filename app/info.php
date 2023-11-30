@@ -27,21 +27,21 @@ $atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"];
         <td class="info"></td>
         <td class="info"></td>
         <td class="info"></td>
-        <td class="info"></td>
+        <td class="info"><?php echo ($oneline_TWR == true) ? "<span class='online_station'>Connecté</span>" : "<span class='offline_station'>Déconnecté</span>" ?></td>
     </tr>
     <tr>
         <td class="info"><?php echo $airport_station_index["airport_to_find_APP"] ?></td>
         <td class="info"></td>
         <td class="info"></td>
         <td class="info"></td>
-        <td class="info"></td>
+        <td class="info"><?php echo ($oneline_APP == true) ? "<span class='online_station'>Connecté</span>" : "<span class='offline_station'>Déconnecté</span>" ?></td>
     </tr>
     <tr>
         <td class="info"><?php echo $airport_station_index["airport_to_find_GND"] ?></td>
         <td class="info"></td>
         <td class="info"></td>
         <td class="info"></td>
-        <td class="info"></td>
+        <td class="info"><?php echo ($oneline_GND == true) ? "<span class='online_station'>Connecté</span>" : "<span class='offline_station'>Déconnecté</span>" ?></td>
     </tr>
 </table>
 </p>
