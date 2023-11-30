@@ -7,19 +7,19 @@ $atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"];
 
 if ($TWR_index !== null) {
     $airport_name_TWR = $json["clients"]["atcs"][$TWR_index]["atis"]["lines"][1];
-    $airport_connection_time_TWR = gmdate("h:i:s",$json["clients"]["atcs"][$TWR_index]["time"]);
+    $airport_connection_time_TWR = gmdate("h:i:s", $json["clients"]["atcs"][$TWR_index]["time"]);
 }
 if ($APP_index !== null) {
     $airport_name_APP = $json["clients"]["atcs"][$APP_index]["atis"]["lines"][1];
-    $airport_connection_time_APP = gmdate("h:i:s",$json["clients"]["atcs"][$APP_index]["time"]);
+    $airport_connection_time_APP = gmdate("h:i:s", $json["clients"]["atcs"][$APP_index]["time"]);
 }
 if ($GND_index !== null) {
     $airport_name_GND = $json["clients"]["atcs"][$GND_index]["atis"]["lines"][1];
-    $airport_connection_time_GND = gmdate("h:i:s",$json["clients"]["atcs"][$GND_index]["time"]);
+    $airport_connection_time_GND = gmdate("h:i:s", $json["clients"]["atcs"][$GND_index]["time"]);
 }
 ?>
 <p>
-<table class="info big_screan">
+<table class="info ">
     <tr>
         <th class="info">Code ICAO</th>
         <th class="info">Nom</th>
@@ -47,29 +47,11 @@ if ($GND_index !== null) {
 </table>
 </p>
 <p>
-<table class="info small_screan">
-    <tr>
-        <th class="info">Code ICAO</td>
-        <td class="info"><?php echo $airport_code; ?></td>
-    </tr>
-    <tr>
-        <th class="info">Nom</td>
-        <td class="info"><?php echo $airport_name; ?></td>
-    </tr>
-    <tr>
-        <th class="info">Information</td>
-        <td class="info"><?php echo $information; ?></td>
-    </tr>
-    <tr>
-        <th class="info">Heure de mise à jour de l'ATIS</td>
-        <td class="info"><?php echo $update_hour_airport . " UTC"; ?></td>
-    </tr>
-</table>
 
 </p>
-<table class="info atis">
+<table class="info atis big_screan">
     <tr>
-        <td class="atis">A<br>T<br>I<br>S</td>
+        <td class="atis info">A<br>T<br>I<br>S</td>
         <td>
             <ul>
                 <?php foreach ($atis as $atis_index) : ?>
@@ -84,3 +66,21 @@ if ($GND_index !== null) {
     </tr>
 </table>
 </p>
+<<table class="info atis small_screan">
+    <tr>
+        <td class="atis info">A<br>T<br>I<br>S</td>
+        <td>
+            <ul>
+                <?php foreach ($atis as $atis_index) : ?>
+
+                    <?php if (strpos($atis_index, "worldserver.ts.ivao.aero/") === false) : ?>
+                        <li><?= $atis_index ?></li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td class="revision"><?php echo $information ?></td>
+    </tr>
+    </table>
