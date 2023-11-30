@@ -1,8 +1,6 @@
 <?php
 
 $information = $json["clients"]["atcs"][$airport_index]["atis"]["revision"];
-
-
 $airport_name = $json["clients"]["atcs"][$airport_index]["atis"]["lines"][1];
 $airport_code = $json["clients"]["atcs"][$airport_index]["callsign"];
 $atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"];
@@ -12,8 +10,6 @@ $atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"];
     <tr>
         <th class="info">Code ICAO</th>
         <th class="info">Nom</th>
-        <th class="info">Information</th>
-        <th class="info">Heure de mise à jour de l'ATIS</th>
         <th class="info">Statu</th>
     </tr>
     <tr>
