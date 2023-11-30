@@ -4,17 +4,18 @@ $information = $json["clients"]["atcs"][$airport_index]["atis"]["revision"];
 $airport_name = $json["clients"]["atcs"][$airport_index]["atis"]["lines"][1];
 $airport_code = $json["clients"]["atcs"][$airport_index]["callsign"];
 $atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"];
-if($TWR_index !== null){
-$airport_name_TWR = $json["clients"]["atcs"][$TWR_index]["atis"]["lines"][1];
-$airport_code_TWR = $json["clients"]["atcs"][$TWR_index]["callsign"];
+
+if ($TWR_index !== null) {
+    $airport_name_TWR = $json["clients"]["atcs"][$TWR_index]["atis"]["lines"][1];
+    $airport_connection_time_TWR = gmdate("h:i:s",$json["clients"]["atcs"][$TWR_index]["time"]);
 }
-if($APP_index !== null){
-$airport_name_APP = $json["clients"]["atcs"][$APP_index]["atis"]["lines"][1];
-$airport_code_APP = $json["clients"]["atcs"][$APP_index]["callsign"];
+if ($APP_index !== null) {
+    $airport_name_APP = $json["clients"]["atcs"][$APP_index]["atis"]["lines"][1];
+    $airport_connection_time_APP = gmdate("h:i:s",$json["clients"]["atcs"][$APP_index]["time"]);
 }
-if($GND_index !== null){
-$airport_name_GND = $json["clients"]["atcs"][$GND_index]["atis"]["lines"][1];
-$airport_code_GND = $json["clients"]["atcs"][$GND_index]["callsign"];
+if ($GND_index !== null) {
+    $airport_name_GND = $json["clients"]["atcs"][$GND_index]["atis"]["lines"][1];
+    $airport_connection_time_GND = gmdate("h:i:s",$json["clients"]["atcs"][$GND_index]["time"]);
 }
 ?>
 <p>
@@ -23,21 +24,25 @@ $airport_code_GND = $json["clients"]["atcs"][$GND_index]["callsign"];
         <th class="info">Code ICAO</th>
         <th class="info">Nom</th>
         <th class="info">Statu</th>
+        <th class="info">Temps de connexion</th>
     </tr>
     <tr>
         <td class="info"><?php echo $airport_station_index["airport_to_find_TWR"] ?></td>
         <td class="info"><?php echo isset($airport_name_TWR) ? $airport_name_TWR : "" ?></td>
         <td class="info"><?php echo ($oneline_TWR == true) ? "<span class='online_station'>Connecté</span>" : "<span class='offline_station'>Déconnecté</span>" ?></td>
+        <td class="info"><?php echo isset($airport_connection_time_TWR) ? $airport_connection_time_TWR : "" ?></td>
     </tr>
     <tr>
         <td class="info"><?php echo $airport_station_index["airport_to_find_APP"] ?></td>
         <td class="info"><?php echo isset($airport_name_APP) ? $airport_name_APP : "" ?></td>
         <td class="info"><?php echo ($oneline_APP == true) ? "<span class='online_station'>Connecté</span>" : "<span class='offline_station'>Déconnecté</span>" ?></td>
+        <td class="info"><?php echo isset($airport_connection_time_APP) ? $airport_connection_time_APP : "" ?></td>
     </tr>
     <tr>
         <td class="info"><?php echo $airport_station_index["airport_to_find_GND"] ?></td>
         <td class="info"><?php echo isset($airport_name_GND) ? $airport_name_GND : "" ?></td>
         <td class="info"><?php echo ($oneline_GND == true) ? "<span class='online_station'>Connecté</span>" : "<span class='offline_station'>Déconnecté</span>" ?></td>
+        <td class="info"><?php echo isset($airport_connection_time_GND) ? $airport_connection_time_GND : "" ?></td>
     </tr>
 </table>
 </p>
