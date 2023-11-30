@@ -101,25 +101,29 @@ li.menu {
     .big_screan {
         display: none;
     }
-    .update{
+
+    .update {
         margin-top: 1em;
         width: 90%;
     }
+
     table.info {
         width: 90%;
     }
 
-    th{
+    th {
         width: 40%;
     }
-.small_screan{
-    margin-left: auto;
-    margin-right: auto;
-}
-.atis{
-    margin-left: auto;
-    margin-right: auto;
-}
+
+    .small_screan {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .atis {
+        margin-left: auto;
+        margin-right: auto;
+    }
 
 }
 
@@ -158,11 +162,14 @@ li.menu {
         padding-right: 3em;
 
     }
+
     table.info {
         width: 70%;
     }
-    
 
+.revision{
+    font-size: 7em;
+}
 
 
 }
