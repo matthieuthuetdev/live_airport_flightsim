@@ -77,6 +77,10 @@ li.menu {
     margin-right: 20px;
 }
 
+.revision {
+    font-size: 7em;
+    /* align-items: center; */
+}
 
 
 @media screen and (max-width: 750px) {
@@ -124,7 +128,10 @@ li.menu {
         margin-left: auto;
         margin-right: auto;
     }
-
+    .revision {
+        font-size: 7em;
+        text-align: center;
+    }
 }
 
 @media screen and (min-width: 750px) {
@@ -167,9 +174,6 @@ li.menu {
         width: 70%;
     }
 
-.revision{
-    font-size: 7em;
-}
 
 
 }
