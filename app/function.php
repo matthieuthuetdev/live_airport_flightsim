@@ -51,8 +51,7 @@ function load_json_file($loader, $time)
  * 
  * @param string $airport_code cette variable contient la saisie de l'utilisateur.
  * @param array $json variable renvoyer par la fonction load_son_file.
- * @return int airport_index si l'aéroport a été trouver la fonction retourne l'index de l'aéroport.
- * @return null airport_index si l'aéroport n'a pas été trouver la fonction retourne null.
+ * @return array la fonction retourne un tableau contenant les informaton suivantes : l'index de la station retenu pour l'affichage de l'atis, l'index de la toure de l'aéroport, l'index de l'aproche de l'aéroport, l'index du sol de l'aéroport, le code de l'aéroport suivi des sufix "_TWR" "_APP", "_GND"
  */
 
 
@@ -128,7 +127,7 @@ function isonline($airport_index)
 }
 
 /**
- * la fonction isonline vérifit si l'index de l'aéroport est définit ou si il est à null.
+ * la fonction isonline vérifit si l'index de la toure de l'aéroport est définit ou si il est à null.
  * @param int @param null airport_index
  * @return bool retourn false si l'aéroport est hors ligne et retourn true si l'aéroport est en ligne.
  */
@@ -143,8 +142,8 @@ function isonline($airport_index)
  }
  
 /**
- * la fonction isonline vérifit si l'index de l'aéroport est définit ou si il est à null.
- * @param int @param null airport_index
+ * la fonction isonline vérifit si l'index de la l'aproche de l'aéroport est définit ou si il est à null.
+* @param int @param null airport_index
  * @return bool retourn false si l'aéroport est hors ligne et retourn true si l'aéroport est en ligne.
  */
 
@@ -158,7 +157,7 @@ function isonline($airport_index)
  }
  
  /**
- * la fonction isonline vérifit si l'index de l'aéroport est définit ou si il est à null.
+ * la fonction isonline vérifit si l'index du sole de l'aéroport est définit ou si il est à null.
  * @param int @param null airport_index
  * @return bool retourn false si l'aéroport est hors ligne et retourn true si l'aéroport est en ligne.
  */
@@ -179,8 +178,10 @@ function isonline_GND($station_index)
  * @param bool $oneline la fonction ne s'exécute que si $online est égale à true.
  * @param array $json
  * @param string $update_hour_airport L'heure de mise à jour de l'aéroport sera affichée à l'utilisateur.
-
-
+ * @param array $airport_station_index l'index des station de l'aéroport et le nom de l'aéroport suivi de tout les sufix.
+ * @param int $oneline_TWR si la toure de l'aéroport est en ligne.
+ * @param int $oneline_APP si l'aproche de l'aéroport est en ligne.
+ * @param int $oneline_GND si le sol de l'aéroport est en ligne.
  * @return string la fonction retourne les informations à afficher sous la forme d'un code html
  */
 
