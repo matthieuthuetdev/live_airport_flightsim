@@ -81,7 +81,6 @@ if ($GND_index !== null) {
         </td>
     </tr>
     <tr>
-        <td></td>
-        <td class="revision"><?php echo $information ?></td>
+        <td class="revision" colspan="2"><?php echo $information ?></td>
     </tr>
     </table>
