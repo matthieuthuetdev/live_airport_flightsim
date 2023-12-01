@@ -109,6 +109,7 @@ li.menu {
     .update {
         margin-top: 1em;
         width: 90%;
+        text-align: center;
     }
 
     table.info {
