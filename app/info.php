@@ -62,7 +62,10 @@ if ($GND_index !== null) {
                 <?php endforeach; ?>
             </ul>
         </td>
-        <td ><span class="revision"><?php echo $information ?></span></td>
+        <td><span class="revision"><?php echo $information ?></span></td>
+    </tr>
+    <tr>
+        <td class="info" colspan="2"><span class="update_hour_atis">heure de M.A.J de l'ATIS : <?php echo $update_hour_airport ?></span></td>
     </tr>
 </table>
 </p>
@@ -82,5 +85,8 @@ if ($GND_index !== null) {
     </tr>
     <tr>
         <td class="revision" colspan="2"><?php echo $information ?></td>
+    </tr>
+    <tr>
+        <td class="info" colspan="2"><span class="update_hour_atis">heure de M.A.J de l'ATIS : <?php echo $update_hour_airport ?></span></td>
     </tr>
     </table>
