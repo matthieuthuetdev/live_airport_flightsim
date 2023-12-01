@@ -115,7 +115,9 @@ li.menu {
     table.info {
         width: 90%;
     }
-
+table{
+    margin: auto;
+}
     th {
         width: 40%;
     }
