@@ -62,7 +62,7 @@ if ($GND_index !== null) {
                 <?php endforeach; ?>
             </ul>
         </td>
-        <td class="revision"><?php echo $information ?></td>
+        <td ><span class="revision"><?php echo $information ?></span></td>
     </tr>
 </table>
 </p>
@@ -81,6 +81,7 @@ if ($GND_index !== null) {
         </td>
     </tr>
     <tr>
+        <td></td>
         <td class="revision"><?php echo $information ?></td>
     </tr>
     </table>
