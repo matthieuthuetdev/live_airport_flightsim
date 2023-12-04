@@ -7,15 +7,15 @@ $atis = $json["clients"]["atcs"][$airport_index]["atis"]["lines"];
 
 if ($TWR_index !== null) {
     $airport_name_TWR = $json["clients"]["atcs"][$TWR_index]["atis"]["lines"][1];
-    $airport_connection_time_TWR = gmdate("h:i:s", $json["clients"]["atcs"][$TWR_index]["time"]);
+    $airport_connection_time_TWR = gmdate("H:i:s", $json["clients"]["atcs"][$TWR_index]["time"]);
 }
 if ($APP_index !== null) {
     $airport_name_APP = $json["clients"]["atcs"][$APP_index]["atis"]["lines"][1];
-    $airport_connection_time_APP = gmdate("h:i:s", $json["clients"]["atcs"][$APP_index]["time"]);
+    $airport_connection_time_APP = gmdate("H:i:s", $json["clients"]["atcs"][$APP_index]["time"]);
 }
 if ($GND_index !== null) {
     $airport_name_GND = $json["clients"]["atcs"][$GND_index]["atis"]["lines"][1];
-    $airport_connection_time_GND = gmdate("h:i:s", $json["clients"]["atcs"][$GND_index]["time"]);
+    $airport_connection_time_GND = gmdate("H:i:s", $json["clients"]["atcs"][$GND_index]["time"]);
 }
 var_dump($airport_connection_time_TWR)
 ?>
