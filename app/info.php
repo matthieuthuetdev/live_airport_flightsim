@@ -69,7 +69,7 @@ if ($GND_index !== null) {
     </tr>
 </table>
 </p>
-<<table class="info atis small_screan">
+<table class="info atis small_screan">
     <tr>
         <td class="atis info">A<br>T<br>I<br>S</td>
         <td>
