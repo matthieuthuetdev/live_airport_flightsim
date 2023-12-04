@@ -29,7 +29,7 @@ $update_hour = getUpdateHour($json);
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
