@@ -17,7 +17,6 @@ if ($GND_index !== null) {
     $airport_name_GND = $json["clients"]["atcs"][$GND_index]["atis"]["lines"][1];
     $airport_connection_time_GND = gmdate("H:i:s", $json["clients"]["atcs"][$GND_index]["time"]);
 }
-var_dump($airport_connection_time_TWR)
 ?>
 <p>
 <table class="info ">
@@ -61,7 +60,7 @@ var_dump($airport_connection_time_TWR)
         <td><span class="revision"><?php echo $information ?></span></td>
     </tr>
     <tr>
-        <td class="info" colspan="3"><span class="update_hour_atis">heure de M.A.J de l'ATIS : <?php echo $update_hour_airport ?></span></td>
+        <td class="info" colspan="3"><span class="update_hour_atis">Heure de M.A.J de l'ATIS : <?php echo $update_hour_airport ?></span></td>
     </tr>
 </table>
 </p>
@@ -83,6 +82,6 @@ var_dump($airport_connection_time_TWR)
         <td class="revision" colspan="2"><?php echo $information ?></td>
     </tr>
     <tr>
-        <td class="info" colspan="2"><span class="update_hour_atis">heure de M.A.J de l'ATIS : <?php echo $update_hour_airport ?></span></td>
+        <td class="info" colspan="2"><span class="update_hour_atis">Heure de M.A.J de l'ATIS : <?php echo $update_hour_airport ?></span></td>
     </tr>
     </table>
