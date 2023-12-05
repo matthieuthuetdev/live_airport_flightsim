@@ -77,8 +77,24 @@ li.menu {
     margin-right: 20px;
 }
 
+.revision {
+    font-size: 7em;
+    /* align-items: center; */
+}
 
+.online_station {
+    color: #38761D;
+}
 
+.offline_station {
+    color: #980000;
+}
+
+.update_hour_atis{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media screen and (max-width: 750px) {
     ul.menu {
         flex-direction: column;
@@ -101,26 +117,39 @@ li.menu {
     .big_screan {
         display: none;
     }
-    .update{
+
+    .update {
         margin-top: 1em;
         width: 90%;
+        text-align: center;
     }
+
     table.info {
         width: 90%;
     }
 
-    th{
+    table {
+        margin: auto;
+    }
+
+    th {
         width: 40%;
     }
-.small_screan{
-    margin-left: auto;
-    margin-right: auto;
-}
-.atis{
-    margin-left: auto;
-    margin-right: auto;
-}
 
+    .small_screan {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .atis {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .revision {
+        font-size: 7em;
+        text-align: center;
+    }
 }
 
 @media screen and (min-width: 750px) {
@@ -158,10 +187,10 @@ li.menu {
         padding-right: 3em;
 
     }
+
     table.info {
         width: 70%;
     }
-    
 
 
 
