@@ -24,7 +24,6 @@ if (isset($_POST["airport_name"])) {
     $info = display_info($airport_index, $oneline, $json, $update_hour_airport, $airport_station_index, $oneline );
 }
 $update_hour = getUpdateHour($json);
-var_dump($oneline)
 ?>
 <!DOCTYPE html>
 <html lang="fr">
