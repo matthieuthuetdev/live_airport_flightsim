@@ -68,13 +68,13 @@ function find_airport($airport_code, $json)
     foreach ($json["clients"]["atcs"] as $index => $current_airport) {
         if (is_int(strpos($current_airport["callsign"], $airport_to_find_TWR))) {
             $airport_index_TWR = $index;
-            break;
+            
         }
 
-        if (is_int(strpos($current_airport["callsign"], $airport_to_find_APP)) && $airport_index_TWR === null) {
+        if (is_int(strpos($current_airport["callsign"], $airport_to_find_APP))) {
             $airport_index_APP = $index;
         }
-        if (is_int(strpos($current_airport["callsign"], $airport_to_find_GND)) && $airport_index_TWR === null) {
+        if (is_int(strpos($current_airport["callsign"], $airport_to_find_GND))) {
             $airport_index_GND = $index;
         }
     }
@@ -92,16 +92,16 @@ function find_airport($airport_code, $json)
 /**
  * la fonction status renvoi le texte à afficher à côté du formulaire,
  * si l'aéroport est en ligne le texte connecté doit être afficher et sinon le texte déconnecté doit être afficher.
- * @param bool $isoneline cette variable est renvoyer par la fonction isoneline.
+ * @param bool $isonline cette variable est renvoyer par la fonction isonline.
  * @param array $json 
  * @return string elle retourne le texte à afficher à côté du formulaire
  */
 
 
-function status($oneline, $json)
+function status($online, $json)
 {
     if ($json !== null) {
-        if ($oneline["status_air"]) {
+        if ($online["status_air"]) {
             return "<span class='online'>Connecté</span>";
         } else {
             return "<span class='offline'>Déconnecté</span>";
@@ -141,7 +141,7 @@ function isonline($airport_station_index)
 /**
  * la fonction display_info inclut le fichier ou sont contenu les informations de l'aéroport courant.
  * @param int $airport_index
- * @param bool $oneline la fonction ne s'exécute que si $online est égale à true.
+ * @param bool $online la fonction ne s'exécute que si $online est égale à true.
  * @param array $json
  * @param string $update_hour_airport L'heure de mise à jour de l'aéroport sera affichée à l'utilisateur.
  * @param array $airport_stations_index la fonction prand en paramaitre le tableau contenant l'index des station de l'aéroport et le nom de l'aéroport avec les sufix des différantes station
@@ -150,9 +150,9 @@ function isonline($airport_station_index)
  */
 
 
-function display_info($airport_index, $oneline, $json, $update_hour_airport, $airport_station_index, $airport_station_status)
+function display_info($airport_index, $online, $json, $update_hour_airport, $airport_station_index, $airport_station_status)
 {
-    if ($oneline["status_air"]) {
+    if ($online["status_air"]) {
         ob_start();
         require "../info.php";
         return ob_get_clean();
@@ -188,14 +188,14 @@ function getUpdateHour($json)
  * la fonction get_update_hour_airport parcoure la totalité des éléments de l'atis de l'aéroport renseigner dans la variable $airport_index et recherche le paterne "recorded at" dans le tableau.
  * @param array $json
  * @param int $airport_index
- * @param bool $oneline
+ * @param bool $online
  * @return string la fonction retourne l’heure de mise à jour de l'atis correspondant à l'aéroport.
  */
 
 
-function get_update_hour_airport($json, $airport_index, $oneline)
+function get_update_hour_airport($json, $airport_index, $online)
 {
-    if ($oneline["status_air"]) {
+    if ($online["status_air"]) {
         $lines_index = null;
 
         foreach ($json["clients"]["atcs"][$airport_index]["atis"]["lines"] as $index => $lines) {

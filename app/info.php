@@ -27,17 +27,17 @@ if ($GND_index !== null) {
     </tr>
     <tr>
         <td class="info"><?php echo $airport_station_index["airport_to_find_TWR"] ?></td>
-        <td class="info"><?php echo ($oneline["status_TWR"] == true) ? "<span class='online_station'>Connecté</span>" : "<span class='offline_station'>Déconnecté</span>" ?></td>
+        <td class="info"><?php echo $online["status_TWR"] ? "<span class='online_station'>Connecté</span>" : "<span class='offline_station'>Déconnecté</span>" ?></td>
         <td class="info"><?php echo isset($airport_connection_time_TWR) ? $airport_connection_time_TWR : "" ?></td>
     </tr>
     <tr>
         <td class="info"><?php echo $airport_station_index["airport_to_find_APP"] ?></td>
-        <td class="info"><?php echo ($oneline["status_APP"] == true) ? "<span class='online_station'>Connecté</span>" : "<span class='offline_station'>Déconnecté</span>" ?></td>
+        <td class="info"><?php echo $online["status_APP"] ? "<span class='online_station'>Connecté</span>" : "<span class='offline_station'>Déconnecté</span>" ?></td>
         <td class="info"><?php echo isset($airport_connection_time_APP) ? $airport_connection_time_APP : "" ?></td>
     </tr>
     <tr>
         <td class="info"><?php echo $airport_station_index["airport_to_find_GND"] ?></td>
-        <td class="info"><?php echo ($oneline["status_GND"] == true) ? "<span class='online_station'>Connecté</span>" : "<span class='offline_station'>Déconnecté</span>" ?></td>
+        <td class="info"><?php echo $online["status_GND"] ? "<span class='online_station'>Connecté</span>" : "<span class='offline_station'>Déconnecté</span>" ?></td>
         <td class="info"><?php echo isset($airport_connection_time_GND) ? $airport_connection_time_GND : "" ?></td>
     </tr>
 </table>

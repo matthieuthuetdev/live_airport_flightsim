@@ -16,12 +16,12 @@ if (isset($_POST["airport_name"])) {
         $airport_station_index = find_airport($airport_code, $json);
         $airport_index = $airport_station_index["airport_index"];
     }
-    $oneline = isonline($airport_station_index);
+    $online = isonline($airport_station_index);
 
-    $airport_status = status($oneline , $json);
-    $update_hour_airport = get_update_hour_airport($json, $airport_index, $oneline);
+    $airport_status = status($online , $json);
+    $update_hour_airport = get_update_hour_airport($json, $airport_index, $online);
 
-    $info = display_info($airport_index, $oneline, $json, $update_hour_airport, $airport_station_index, $oneline );
+    $info = display_info($airport_index, $online, $json, $update_hour_airport, $airport_station_index, $online );
 }
 $update_hour = getUpdateHour($json);
 ?>
