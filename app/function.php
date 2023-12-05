@@ -60,6 +60,7 @@ function find_airport($airport_code, $json)
     $airport_to_find_TWR = strtoupper(trim($airport_code)) . "_TWR";
     $airport_to_find_APP = strtoupper(trim($airport_code)) . "_APP";
     $airport_to_find_GND = strtoupper(trim($airport_code)) . "_GND";
+    $airport_index = null;
     $airport_index_TWR = null;
     $airport_index_APP = null;
     $airport_index_GND = null;
@@ -100,7 +101,7 @@ function find_airport($airport_code, $json)
 function status($oneline, $json)
 {
     if ($json !== null) {
-        if ($oneline) {
+        if ($oneline["status_air"]) {
             return "<span class='online'>Connecté</span>";
         } else {
             return "<span class='offline'>Déconnecté</span>";
@@ -151,7 +152,7 @@ function isonline($airport_station_index)
 
 function display_info($airport_index, $oneline, $json, $update_hour_airport, $airport_station_index, $airport_station_status)
 {
-    if ($oneline) {
+    if ($oneline["status_air"]) {
         ob_start();
         require "../info.php";
         return ob_get_clean();
@@ -194,7 +195,7 @@ function getUpdateHour($json)
 
 function get_update_hour_airport($json, $airport_index, $oneline)
 {
-    if ($oneline) {
+    if ($oneline["status_air"]) {
         $lines_index = null;
 
         foreach ($json["clients"]["atcs"][$airport_index]["atis"]["lines"] as $index => $lines) {
