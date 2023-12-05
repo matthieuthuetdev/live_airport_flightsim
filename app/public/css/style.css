@@ -82,7 +82,19 @@ li.menu {
     /* align-items: center; */
 }
 
+.online_station {
+    color: #38761D;
+}
 
+.offline_station {
+    color: #980000;
+}
+
+.update_hour_atis{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media screen and (max-width: 750px) {
     ul.menu {
         flex-direction: column;
@@ -115,9 +127,11 @@ li.menu {
     table.info {
         width: 90%;
     }
-table{
-    margin: auto;
-}
+
+    table {
+        margin: auto;
+    }
+
     th {
         width: 40%;
     }
@@ -131,6 +145,7 @@ table{
         margin-left: auto;
         margin-right: auto;
     }
+
     .revision {
         font-size: 7em;
         text-align: center;
